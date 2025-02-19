@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: "/ryant4333.github.io",
+  // basePath: "/ryant4333.github.io",
   output: "export"
 };
 
