@@ -1,0 +1,85 @@
+---
+title: 'Real Time Process Anomaly Detection'
+date: '2022'
+description: 'IoT Data Stream Anomaly Detection for Mineral Processing Plant'
+image: '/images/process-anomaly-architecture.png'
+---
+
+## Project Overview
+
+Led the platform switch to Databricks and implemented a real-time process anomaly detection system for a mineral processing plant.
+This project combined MLOps practices with industrial process engineering to create a system that could identify processing anomalies in real-time, 
+automatically trigger control adjustments, and continuously improve through operator feedback.
+
+The most successful model implementation resulted in a **$3.6 million increase in weekly revenue** at a single plant.
+
+## The Technical Challenge
+
+Processing plants operate with extremely tight margins and complex operational parameters. 
+Small deviations in processes can lead to significant inefficiencies and lost production. 
+Traditional monitoring approaches were reactive, leading to suboptimal operations and delayed responses to emerging issues.
+
+Our goal was to develop a system that could:
+- Process high-resolution time series data (2-second intervals)
+- Detect anomalies in critical equipment performance in real-time
+- Integrate with existing SCADA systems and PLCs
+- Enable continuous model improvement through operator feedback
+- Reduce model deployment time from 1 month to 1 week
+
+## Architecture and Technologies
+
+We built a comprehensive data pipeline and model deployment infrastructure using:
+
+![Architecture Diagram](/images/process-anomaly-architecture.png)
+
+- **Data Ingestion**: Azure Event Hubs for real-time data collection
+- **Stream Processing**: Azure Stream Analytics to process incoming telemetry
+- **Data Storage**: Time Series Insights (TSI) for efficient time-series storage
+- **Compute Platform**: Databricks for scalable data processing and model training
+- **Development**: PySpark notebooks organized in Bronze, Silver, Gold architecture
+- **Model Lifecycle**: MLFlow for experiment tracking and model versioning
+- **Training Automation**: Azure Functions for triggering model retraining
+- **Deployment**: Azure DevOps pipelines for CI/CD automation
+- **Storage Optimization**: Delta Tables for efficient data versioning and retrieval
+
+## MLOps Implementation
+
+A key innovation in this project was the MLOps approach that reduced model deployment time from one month to just one week. We implemented:
+
+1. **Bronze-Silver-Gold Data Architecture**:
+   - Bronze: Queried TSI for training data ingested to delta tables with minimal transformation
+   - Silver: PySpark used for cleaning and feature engineering (rolling averages & rate of change calculations)
+   - Gold: Production-ready subsets of features to traine models
+
+2. **Continuous Improvement Loop**:
+   - Process engineers could tag anomalous data through a simple interface
+   - Tagged periods were automatically added to training datasets
+   - Manual review triggered automated retraining pipelines
+   - Updated models were versioned in MLFlow and deployed through CI/CD
+
+3. **Version Control Integration**:
+   - All notebooks and configurations tracked through Git
+   - Change tracking for all model versions and data transformations
+
+## Case Study: Dense Medium Cyclone (DMC) Surging Detection
+
+The most successful application was a machine learning model deployed for Dense Medium Cyclone (DMC) surging detection at a Queensland processing site. The system:
+
+1. Continuously monitored cyclone performance data
+2. Detected early signs of surging conditions before they became critical
+3. Automatically adjusted plant feed rate and operating density parameters
+4. Communicated with SCADA systems to implement control changes
+
+In one instance, the model detected an emerging surging event and automatically reduced the plant feed rate while adjusting the operating density. This intervention:
+
+- Alleviated the surging conditions before they impacted production
+- Resulted in a 5% yield uplift in the primary product
+- Maintained the overall plant yield
+- Generated $3.6 million in additional weekly revenue through product quality improvements
+
+## Beyond Anomaly Detection: Model Predictive Control
+
+A POC was developed to push the output from the anomaly detection models into the site control systems.
+With Control Engineering gaurd rails the model was able to automatically adjust control parameters in real-time based on the detected anomalies.
+
+## Future Directions
