@@ -1,0 +1,31 @@
+---
+title: 'Belt Press Filter'
+date: '2024'
+description: 'Flocculant dosing optimisation with lidar cameras'
+technologies:
+  - python
+  - azure
+  - databricks
+  - mlflow
+---
+
+## Edge Processing of Lidar Data
+
+Belt press filters add flocculant to product then squeeze it between two belts to separate solids from liquids.
+To ensure correct moisture is achieved historically operators over floc to ensure the correct moisture is achieved.
+Process Engineers estimate a wastage of $36,400 in flocculant per annum per filter, with 12 filters in the plant a saving of **$436,800 per annum**.
+
+Both lidar and a 3d time-of-flight (ToF) cameras were used benchmarked to determine the best sensor for the application. 
+The conditions of the deployment were harsh with dust and water sprays in the field of view and potential vibrations in the mounting beam.
+The ToF sensor returned xyz point cloud data which was normalized to ensure the data was horizontal accross the belt.  The sensor was quite sensitive to occlusions therefor multiple slices were averaged accross the frame and accross time to reduce noise.
+The lidar required additional transformation, converting raw distances to cartesian coordinates
+
+## The Technical Challenge
+
+## Architecture and Technologies
+
+## Result
+
+- MDX support
+- Syntax highlighting
+- Frontmatter metadata 

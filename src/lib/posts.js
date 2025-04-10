@@ -24,6 +24,7 @@ export function getAllPosts() {
         title: data.title,
         date: data.date,
         description: data.description,
+        technologies: data.technologies || [],
         content
       }
     })
@@ -44,6 +45,7 @@ export function getPostBySlug(slug) {
       title: data.title,
       date: data.date,
       description: data.description,
+      technologies: data.technologies || [],
       content
     }
   } catch {

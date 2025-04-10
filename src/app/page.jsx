@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 import Hero from "@/components/Hero";
+import TechnologyIcons from '@/components/TechnologyIcons'; // Ensure this path is correct
 
 export default function Home() {
   const posts = getAllPosts();
@@ -9,6 +10,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
+
+      <TechnologyIcons technologies={['python', 'react', 'nextjs']} />
 
       {/* Blog Posts */}
       <section>
@@ -20,6 +23,11 @@ export default function Home() {
                 <time className="text-sm text-gray-500">{post.date}</time>
                 <h3 className="text-xl font-bold mb-2">{post.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{post.description}</p>
+                {post.technologies && (
+                  <div className="mt-4">
+                    <TechnologyIcons technologies={post.technologies} />
+                  </div>
+                )}
               </Link>
             </article>
           ))}
@@ -35,4 +43,4 @@ function Skill({ icon, text }) {
       {icon} {text}
     </span>
   );
-} 
+}
