@@ -11,8 +11,6 @@ export default function Home() {
     <main>
       <Hero />
 
-      <TechnologyIcons technologies={['python', 'react', 'nextjs']} />
-
       {/* Blog Posts */}
       <section>
         <h2 className="text-2xl font-bold mb-6">Latest Posts</h2>

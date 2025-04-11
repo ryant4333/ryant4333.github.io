@@ -42,7 +42,7 @@ export default function Hero() {
       
       {/* Skills */}
       <div className="flex flex-wrap gap-2 mb-8">
-        <Skill icon="⚛️" text="React.js" />
+        {/* <Skill icon="⚛️" text="React.js" />
         <Skill icon="🟨" text="Javascript" />
         <Skill icon="▲" text="Next.js" />
         <Skill icon="🤖" text="OpenAI API" />
@@ -50,7 +50,7 @@ export default function Hero() {
         <Skill icon="🎨" text="Material UI" />
         <Skill icon="🎯" text="TypeScript" />
         <Skill icon="🌐" text="HTML" />
-        <Skill icon="🎨" text="CSS" />
+        <Skill icon="🎨" text="CSS" /> */}
         <Skill icon="🐙" text="Git" />
       </div>
 
