@@ -1,9 +1,20 @@
 import Image from "next/image";
+import { iconMap } from "../components/TechnologyIcons";
 
-function Skill({ icon, text }) {
+function Skill({ tech }) {
+  const icon = iconMap[tech.toLowerCase()];
+  if (!icon) return null;
+  
   return (
-    <span className="skill-tag">
-      {icon} {text}
+    <span className="skill-tag flex items-center gap-1 bg-gray-100 dark:bg-gray-800 py-1 px-3 rounded-full">
+      <Image 
+        src={icon.src} 
+        alt={icon.alt} 
+        width={16} 
+        height={16} 
+        className="object-contain" 
+      />
+      <span>{icon.alt}</span>
     </span>
   );
 }
@@ -42,21 +53,15 @@ export default function Hero() {
       
       {/* Skills */}
       <div className="flex flex-wrap gap-2 mb-8">
-        {/* <Skill icon="⚛️" text="React.js" />
-        <Skill icon="🟨" text="Javascript" />
-        <Skill icon="▲" text="Next.js" />
-        <Skill icon="🤖" text="OpenAI API" />
-        <Skill icon="📦" text="Node.js" />
-        <Skill icon="🎨" text="Material UI" />
-        <Skill icon="🎯" text="TypeScript" />
-        <Skill icon="🌐" text="HTML" />
-        <Skill icon="🎨" text="CSS" /> */}
-        <Skill icon="🐙" text="Git" />
+        <Skill tech="python" />
+        <Skill tech="csharp" />
+        <Skill tech="azure" />
+        
       </div>
 
       <p className="text-gray-600 dark:text-gray-300">
-        I write about my experiences as a developer, share tips and tricks, and occasionally review books that inspire me.
+        Curiosity driven I love to explore new technologies and find innovative solutions to complex problems.
       </p>
     </section>
   );
-} 
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const iconMap = {
+export const iconMap = {
   python: { 
     src: '/icons/python.png', 
     alt: 'Python' 
@@ -14,12 +14,8 @@ const iconMap = {
     src: '/icons/javascript.svg', 
     alt: 'JavaScript' 
   },
-  react: { 
-    src: '/icons/react.png', 
-    alt: 'React' 
-  },
   nextjs: { 
-    src: '/icons/nextjs.png', 
+    src: '/icons/nextjs.svg', 
     alt: 'Next.js' 
   },
   databricks: { 
@@ -71,6 +67,10 @@ const iconMap = {
     alt: 'MongoDB'
   },
   // Adding Azure icons
+  azure: {
+    src: '/icons/azure.svg',
+    alt: 'Azure'
+  },
   azureblob: {
     src: '/icons/az_blob.svg',
     alt: 'Azure Blob Storage'
@@ -195,5 +195,3 @@ export default function TechnologyIcons({ technologies }) {
     </div>
   );
 }
-
-<TechnologyIcons technologies={['python', 'react', 'nextjs']} />

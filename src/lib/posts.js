@@ -25,6 +25,7 @@ export function getAllPosts() {
         date: data.date,
         description: data.description,
         technologies: data.technologies || [],
+        star: data.star || false,
         content
       }
     })

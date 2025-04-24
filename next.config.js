@@ -1,9 +1,5 @@
 const createMDX = require('@next/mdx')
 
-const withMDX = createMDX({
-  extension: /\.mdx?$/,
-})
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
@@ -11,7 +7,17 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Configure pageExtensions to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'mdx']
 }
 
-module.exports = withMDX(nextConfig) 
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})
+
+// Merge MDX config with Next.js config
+module.exports = withMDX(nextConfig)
