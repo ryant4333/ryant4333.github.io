@@ -83,4 +83,10 @@ In one instance, the model detected an emerging surging event and automatically 
 A POC was developed to push the output from the anomaly detection models into the site control systems.
 With Control Engineering gaurd rails the model was able to automatically adjust control parameters in real-time based on the detected anomalies.
 
-## Future Directions
+## star
+
+A large quantity of time series IoT data is being streamed to and stored in Azure, complex process anomalies could be detected by SME's we wanted to flag these automatically.
+Existing attempts to create ML models were inefficient, iterating on models with different features and datasets was time consuming and difficult to track.
+Following MLOps best practises I moved our solution to Databricks, allowing direct querying of Time Series data creating a Bronze-Silver-Gold architecture for model training.
+Using MLFlow tracking the best produced models was possible and these models where pushed to production using Azure DevOps pipelines.
+The most succesful model detecting surging events increased weekly revenue by $3.6 million at a single site.
